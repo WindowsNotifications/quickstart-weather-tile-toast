@@ -1,0 +1,26 @@
+﻿<Page
+    x:Class="QuickstartWeatherTileToast.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:QuickstartWeatherTileToast"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel Margin="24">
+
+            <Button
+                x:Name="ButtonPopToast"
+                Content="Pop Toast"
+                Click="ButtonPopToast_Click"/>
+
+            <Button
+                x:Name="ButtonPinUpdateTile"
+                Content="Pin/Update Tile"
+                Click="ButtonPinUpdateTile_Click"
+                Margin="0,12,0,0"/>
+
+        </StackPanel>
+    </Grid>
+</Page>
