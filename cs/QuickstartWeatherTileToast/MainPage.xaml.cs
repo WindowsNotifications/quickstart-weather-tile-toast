@@ -32,8 +32,8 @@ namespace QuickstartWeatherTileToast
 
         private void ButtonPopToast_Click(object sender, RoutedEventArgs e)
         {
-            // Generate the notification content
-            XmlDocument content = NotificationHelper.GenerateToastContent();
+            // Generate the notification content as XML
+            XmlDocument content = NotificationHelper.GenerateToastContent().GetXml();
 
             // Create the notification
             ToastNotification notif = new ToastNotification(content);
@@ -54,13 +54,17 @@ namespace QuickstartWeatherTileToast
             tile.VisualElements.Square310x310Logo = new Uri("ms-appx:///Assets/Square150x150Logo.png");
             tile.VisualElements.Wide310x150Logo = new Uri("ms-appx:///Assets/Wide310x150Logo.png");
 
+            tile.VisualElements.ShowNameOnSquare150x150Logo = true;
+            tile.VisualElements.ShowNameOnSquare310x310Logo = true;
+            tile.VisualElements.ShowNameOnWide310x150Logo = true;
+
             if (!await tile.RequestCreateAsync())
             {
                 return;
             }
 
-            // Generate the notification content
-            XmlDocument content = NotificationHelper.GenerateTileContent();
+            // Generate the notification content as XML
+            XmlDocument content = NotificationHelper.GenerateTileContent().GetXml();
 
             // Create the notification
             TileNotification notif = new TileNotification(content);

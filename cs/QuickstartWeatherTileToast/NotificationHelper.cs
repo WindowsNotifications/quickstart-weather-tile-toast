@@ -10,7 +10,7 @@ namespace QuickstartWeatherTileToast
 {
     public class NotificationHelper
     {
-        public static XmlDocument GenerateToastContent()
+        public static ToastContent GenerateToastContent()
         {
             // Start by constructing the visual portion of the toast
             ToastBindingGeneric binding = new ToastBindingGeneric();
@@ -19,7 +19,7 @@ namespace QuickstartWeatherTileToast
             // (it is required that your toast starts with a text element)
             binding.Children.Add(new AdaptiveText()
             {
-                Text = "Today will be sunny with a high of 63 and a low of 42."
+                Text = "Today will be mostly sunny with a high of 63 and a low of 42."
             });
 
             // If Adaptive Toast Notifications are supported
@@ -55,7 +55,7 @@ namespace QuickstartWeatherTileToast
             }
 
             // Construct the entire notification
-            ToastContent content = new ToastContent()
+            return new ToastContent()
             {
                 Visual = new ToastVisual()
                 {
@@ -69,9 +69,6 @@ namespace QuickstartWeatherTileToast
                 // Include launch string so we know what to open when user clicks toast
                 Launch = "action=viewForecast&zip=98008"
             };
-
-            // Return the XmlDocument for the notification
-            return content.GetXml();
         }
 
         private static bool IsAdaptiveToastSupported()
@@ -104,9 +101,9 @@ namespace QuickstartWeatherTileToast
             return new Version((int)v1, (int)v2, (int)v3, (int)v4);
         }
 
-        public static XmlDocument GenerateTileContent()
+        public static TileContent GenerateTileContent()
         {
-            TileContent content = new TileContent()
+            return new TileContent()
             {
                 Visual = new TileVisual()
                 {
@@ -119,8 +116,6 @@ namespace QuickstartWeatherTileToast
                     BaseUri = new Uri("Assets/NotificationAssets/", UriKind.Relative)
                 }
             };
-
-            return content.GetXml();
         }
 
         private static TileBinding GenerateTileBindingSmall()
@@ -185,13 +180,9 @@ namespace QuickstartWeatherTileToast
                             Children =
                             {
                                 GenerateSubgroup("Mon", "Mostly Cloudy.png", 63, 42),
-
                                 GenerateSubgroup("Tue", "Cloudy.png", 57, 38),
-
                                 GenerateSubgroup("Wed", "Sunny.png", 59, 43),
-
                                 GenerateSubgroup("Thu", "Sunny.png", 62, 42),
-
                                 GenerateSubgroup("Fri", "Sunny.png", 71, 66)
                             }
                         }
