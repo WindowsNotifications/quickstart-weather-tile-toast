@@ -1,9 +1,5 @@
-﻿using NotificationsExtensions;
-using NotificationsExtensions.Tiles;
-using NotificationsExtensions.Toasts;
+﻿using Microsoft.Toolkit.Uwp.Notifications;
 using System;
-using Windows.Data.Xml.Dom;
-using Windows.Foundation.Metadata;
 using Windows.System.Profile;
 
 namespace QuickstartWeatherTileToast
